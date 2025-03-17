@@ -9,4 +9,29 @@ dependencies = [
     "fastapi>=0.115.11",
     "httpx>=0.28.1",
     "mcp[cli]>=1.4.1",
+    "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
+markers = [
+    "asyncio: mark test as async",
+]
+
+[tool.pytest-asyncio]
+mode = "strict"
+
+[tool.coverage.run]
+source = ["."]
+omit = ["tests/*", "setup.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "pass",
 ]

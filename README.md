@@ -100,6 +100,58 @@ await get_docs(query="animations", library="framer-motion")
 await get_docs(query="animations", library="motion")
 ```
 
+## 🧪 Testing
+
+The project includes a comprehensive test suite to ensure reliability and correctness. Tests are organized into three main categories:
+
+### Test Structure
+
+- **Unit Tests**: Test individual components in isolation
+
+  - `test_utils.py`: Tests for library name normalization and URL retrieval
+  - `test_services.py`: Tests for web search and content fetching services
+
+- **Integration Tests**: Test how components work together
+  - `test_main.py`: Tests for the main API function `get_docs`
+
+### Running Tests
+
+To run all tests:
+
+```bash
+python -m pytest
+```
+
+To run specific test modules:
+
+```bash
+python -m pytest tests/test_utils.py
+python -m pytest tests/test_services.py
+python -m pytest tests/test_main.py
+```
+
+To run tests with verbose output:
+
+```bash
+python -m pytest -v
+```
+
+### Test Coverage
+
+The tests cover:
+
+- ✅ Library name normalization and validation
+- ✅ URL retrieval for different libraries
+- ✅ Web search functionality
+- ✅ Content fetching and error handling
+- ✅ Documentation search integration
+- ✅ API input validation and error handling
+- ✅ Alias resolution for different library name formats
+
+### Asynchronous Testing
+
+The project uses a custom `run_async` helper function to test asynchronous code in a synchronous test environment. This approach allows for testing async functions without requiring complex test setup.
+
 ## 🏗️ Project Structure
 
 ```
@@ -108,6 +160,11 @@ mcp-server/
 ├── config.py        # Configuration settings and constants
 ├── services.py      # Web search and content fetching services
 ├── utils.py         # Utility functions for library name handling
+├── tests/           # Test suite
+│   ├── test_utils.py    # Tests for utility functions
+│   ├── test_services.py # Tests for web services
+│   ├── test_main.py     # Tests for main API
+│   └── conftest.py      # Pytest configuration
 ├── requirements.txt # Project dependencies
 └── README.md        # Documentation
 ```
@@ -152,7 +209,9 @@ We welcome contributions! Here's how you can help:
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Submit a pull request
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
 
 ### Adding New Libraries
 
@@ -178,4 +237,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [FastMCP](https://fastmcp.com) for the core functionality
 - [DuckDuckGo](https://duckduckgo.com) for search capabilities
+- [pytest](https://docs.pytest.org/) for testing framework
 - All supported documentation providers
