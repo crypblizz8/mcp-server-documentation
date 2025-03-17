@@ -1,6 +1,6 @@
 # MCP Documentation Search Server
 
-A powerful documentation search server built with FastMCP that enables intelligent searching across multiple popular framework and library documentations. This tool helps developers quickly find relevant information from various documentation sources using a unified interface.
+A powerful documentation search server built with FastMCP, enabling AI systems to intelligently search across multiple popular framework and library documentations. This tool ensures that AI models can quickly access and retrieve relevant information from various documentation sources using a unified interface.
 
 ## 🌟 Features
 
