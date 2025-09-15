@@ -13,13 +13,14 @@ from config import DOCS_URLS, LIBRARY_ALIASES
 @pytest.mark.parametrize(
     "input_name,expected",
     [
-        ("framermotion", "framer"),  # Test common alias
-        ("FRAMER-MOTION", "framer"),  # Test case insensitivity
+        ("nillion", "nillion"),  # Test exact match
+        ("tailwindcss", "tailwind"),  # Test common alias
+        ("TAILWIND-CSS", "tailwind"),  # Test case insensitivity
         ("next.js", "nextjs"),  # Test dot notation
-        ("tailwindcss", "tailwind"),  # Test compound name
-        ("langchain", "langchain"),  # Test exact match
+        ("next", "nextjs"),  # Test short name
+        ("fastmcp", "mcp"),  # Test mcp alias
         ("unknown-lib", "unknown-lib"),  # Test unknown library
-        ("  framer  ", "framer"),  # Test whitespace handling
+        ("  nillion  ", "nillion"),  # Test whitespace handling
         ("NextJS", "nextjs"),  # Test mixed case
     ],
 )
@@ -43,8 +44,10 @@ def test_normalize_library_name(input_name: str, expected: str):
 @pytest.mark.parametrize(
     "input_name,expected",
     [
-        ("framer", True),  # Valid library
+        ("nillion", True),  # Valid library
         ("nextjs", True),  # Valid library
+        ("tailwind", True),  # Valid library
+        ("mcp", True),  # Valid library
         ("unknown-lib", False),  # Invalid library
         ("", False),  # Empty string
         (None, False),  # None value
@@ -73,10 +76,11 @@ def test_validate_library(input_name: str, expected: bool):
 @pytest.mark.parametrize(
     "input_name,expected_url",
     [
-        ("framer", "https://motion.dev/docs/"),  # Framer Motion URL
+        ("nillion", "https://docs.nillion.com"),  # Nillion URL
         ("nextjs", "https://nextjs.org/docs"),  # Next.js URL
-        ("unknown-lib", None),  # Invalid library should return None
         ("tailwind", "https://tailwindcss.com/docs"),  # Tailwind URL
+        ("mcp", "https://docs.fastmcp.com"),  # MCP URL
+        ("unknown-lib", None),  # Invalid library should return None
     ],
 )
 def test_get_library_url(input_name: str, expected_url: str):

@@ -7,11 +7,9 @@ from services import search_documentation
 mcp = FastMCP("docs")
 
 
-@mcp.tool()
-async def get_docs(query: str, library: str) -> str:
-    """Search the documentation of a library.
-    Supports nillion, nextjs, tailwind, mcp.
-
+async def get_docs_impl(query: str, library: str) -> str:
+    """Implementation of the documentation search functionality.
+    
     This function performs the following steps:
     1. Normalizes the library name to handle variations
     2. Validates the library is supported
@@ -20,7 +18,7 @@ async def get_docs(query: str, library: str) -> str:
 
     Args:
         query (str): The search query (e.g. "Chroma DB")
-        library (str): The library to search docs for (e.g. "langchain")
+        library (str): The library to search docs for (e.g. "nillion")
 
     Returns:
         str: Combined text content from the search results or error message
@@ -39,6 +37,21 @@ async def get_docs(query: str, library: str) -> str:
 
     # Search documentation and return results
     return await search_documentation(query, docs_url)
+
+
+@mcp.tool()
+async def get_docs(query: str, library: str) -> str:
+    """Search the documentation of a library.
+    Supports nillion, nextjs, tailwind, mcp.
+
+    Args:
+        query (str): The search query (e.g. "Chroma DB")
+        library (str): The library to search docs for (e.g. "nillion")
+
+    Returns:
+        str: Combined text content from the search results or error message
+    """
+    return await get_docs_impl(query, library)
 
 
 if __name__ == "__main__":
