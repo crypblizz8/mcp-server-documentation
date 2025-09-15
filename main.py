@@ -10,7 +10,7 @@ mcp = FastMCP("docs")
 @mcp.tool()
 async def get_docs(query: str, library: str) -> str:
     """Search the documentation of a library.
-    Supports langchain, langgraph, nextjs, tailwind, framer, mcp.
+    Supports nillion, nextjs, tailwind, mcp.
 
     This function performs the following steps:
     1. Normalizes the library name to handle variations

@@ -2,24 +2,21 @@
 
 # Documentation URLs for supported libraries
 DOCS_URLS = {
-    "langchain": "https://js.langchain.com/docs",
-    "langgraph": "https://langchain-ai.github.io/langgraphjs",
+    "nillion": "https://docs.nillion.com",
     "nextjs": "https://nextjs.org/docs",
     "tailwind": "https://tailwindcss.com/docs",
     "mcp": "https://docs.fastmcp.com",
-    "framer": "https://motion.dev/docs/",
 }
 
 # Library name aliases mapping
 LIBRARY_ALIASES = {
-    "framermotion": "framer",
-    "framer-motion": "framer",
-    "motion": "framer",
+    "nillion": "nillion",
     "tailwindcss": "tailwind",
+    "tailwind-css": "tailwind",
     "next.js": "nextjs",
     "next": "nextjs",
-    "langchainjs": "langchain",
-    "langgraphjs": "langgraph",
+    "nextjs": "nextjs",
+    "fastmcp": "mcp",
 }
 
 # HTTP client settings
