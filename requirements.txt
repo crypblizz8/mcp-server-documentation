@@ -1,6 +1,6 @@
 # Main dependencies
 fastmcp>=0.1.0
-duckduckgo-search>=4.1.1
+duckduckgo-search>=7.5.2
 httpx>=0.26.0
 beautifulsoup4>=4.12.0
 
